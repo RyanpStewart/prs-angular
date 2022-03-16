@@ -15,6 +15,7 @@ import { VendorDetailComponent } from './features/vendor-detail/vendor-detail.co
 @NgModule({
   declarations: [
     AppComponent,
+    UserListComponent,
     AboutComponent,
     UserListComponent,
     UserDetailComponent,
@@ -28,6 +29,7 @@ import { VendorDetailComponent } from './features/vendor-detail/vendor-detail.co
     NgbModule,
     FormsModule,
   ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })

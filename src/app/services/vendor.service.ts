@@ -18,7 +18,7 @@ export class VendorService {
   // http://localhost:8080/vendors/
   getAll(): Observable<Vendor[]> {
     let requestUrl = this.url + '/';
-    return this.http.get<Vendor[]>('http://localhost:8080/vendors/');
+    return this.http.get<Vendor[]>(requestUrl);
   }
 
   // http://localhost:8080/users/{id}

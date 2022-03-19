@@ -2,29 +2,35 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
 import { User } from '../models/user.model';
 
 // configure base url
-const userRoute = "/users"
+const userRoute = '/users';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  private url = environment.apiBaseUrl + userRoute;
 
-  url = environment.apiBaseUrl + userRoute
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // http://localhost:8080/users/
   getAll(): Observable<User[]> {
-    let requestUrl = this.url + '/'
-    return this.http.get<User[]>('http://localhost:8080/users/')
+    let requestUrl = this.url + '/';
+    return this.http.get<User[]>(requestUrl);
   }
 
   // http://localhost:8080/users/{id}
   getById(id: number): Observable<User[]> {
-    let requestUrl = this.url + '/' + id
-    return this.http.get<User[]>(requestUrl)
+    let requestUrl = this.url + '/' + id;
+    return this.http.get<User[]>(requestUrl);
+  }
+
+
+  // http://localhost:8080/users"
+  createUser(user: User): Observable<User[]> {
+    return this.http.post<User[]>(this.url, user) 
   }
 }

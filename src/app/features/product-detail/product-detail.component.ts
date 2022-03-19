@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -11,19 +11,21 @@ export class ProductDetailComponent implements OnInit {
   product: Product = new Product();
   productId: number = 1;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,
+    private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.productService.getById(this.productId).subscribe(
-      (data) => {
-        if (data.length > 0) {
-          this.product = data[0];
-        }
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.route.params.subscribe((params) => {
+      this.productId = params.id;
+      this.productService.getById(this.productId).subscribe(
+        (data) => {
+          if (data.length > 0) {
+            this.product = data[0];
+          }
+          console.log(data);
+        },
+        (error) => console.log(error)
+      );
+    });
   }
 }

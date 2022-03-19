@@ -27,9 +27,7 @@ export class UserDetailComponent implements OnInit {
           }
           console.log(data);
         },
-        (error) => {
-          console.log(error);
-        }
+        (error) => console.log(error)
       );
     });
   }

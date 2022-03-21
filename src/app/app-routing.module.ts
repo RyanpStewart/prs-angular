@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './features/about/about.component';
+import { ProductCreateComponent } from './features/product-create/product-create.component';
 import { ProductDetailComponent } from './features/product-detail/product-detail.component';
 import { ProductListComponent } from './features/product-list/product-list.component';
 import { RequestListComponent } from './features/request-list/request-list.component';
@@ -10,6 +11,7 @@ import { UserListComponent } from './features/user-list/user-list.component';
 import { VendorCreateComponent } from './features/vendor-create/vendor-create.component';
 import { VendorDetailComponent } from './features/vendor-detail/vendor-detail.component';
 import { VendorListComponent } from './features/vendor-list/vendor-list.component';
+
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
@@ -21,12 +23,13 @@ const routes: Routes = [
   { path: 'vendor/create', component: VendorCreateComponent },
   { path: 'product/list', component: ProductListComponent },
   { path: 'product/detail/:id', component: ProductDetailComponent },
+  { path: 'product/create', component: ProductCreateComponent},
   { path: 'request/list', component: RequestListComponent },
   { path: '**', component: AboutComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload'})],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

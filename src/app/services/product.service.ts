@@ -4,29 +4,36 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product.model';
 
-
-
 //configure base url
-const productRoute = "/products"
+const productRoute = '/products';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  url = environment.apiBaseUrl + productRoute
+  url = environment.apiBaseUrl + productRoute;
 
   //get all products
   //http://localhost:8080/products/
-  getAll() : Observable<Product[]> {
+  getAll(): Observable<Product[]> {
     let requestUrl = this.url + '/';
-    return this.http.get<Product[]>(requestUrl)
+    return this.http.get<Product[]>(requestUrl);
   }
   //get product by id
-  //http://localhost:8080/users/{id}
-  getById (id: number) : Observable<Product[]> {
-  let requestUrl = this.url + '/' + id
-  return this.http.get<Product[]>(requestUrl);
-  }}
+  //http://localhost:8080/products/{id}
+  getById(id: number): Observable<Product[]> {
+    let requestUrl = this.url + '/' + id;
+    return this.http.get<Product[]>(requestUrl);
+  }
+  // http://localhost:8080/products"
+  createProduct(product: Product): Observable<Product[]> {
+    return this.http.post<Product[]>(this.url, product);
+  }
+  //http://localhost:8080/products/{id}
+  deleteById(id: number): Observable<Product[]> {
+    let requestUrl = this.url + '/' + id;
+    return this.http.delete<Product[]>(requestUrl);
+  }
+}

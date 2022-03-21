@@ -30,4 +30,9 @@ export class VendorService {
   createVendor(vendor: Vendor): Observable<Vendor[]> {
     return this.http.post<Vendor[]>(this.url, vendor);
   }
+
+  deleteById(id: number): Observable<Vendor[]> {
+    let requestUrl = this.url + '/' + id;
+    return this.http.delete<Vendor[]>(requestUrl);
+  }
 }

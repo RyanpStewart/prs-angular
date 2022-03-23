@@ -19,6 +19,7 @@ import { UserCreateComponent } from './features/user-create/user-create.componen
 import { VendorCreateComponent } from './features/vendor-create/vendor-create.component';
 import { ProductCreateComponent } from './features/product-create/product-create.component';
 import { UserEditComponent } from './features/user-edit/user-edit.component';
+import { VendorEditComponent } from './features/vendor-edit/vendor-edit.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { UserEditComponent } from './features/user-edit/user-edit.component';
     VendorCreateComponent,
     ProductCreateComponent,
     UserEditComponent,
+    VendorEditComponent,
  
   ],
   imports: [

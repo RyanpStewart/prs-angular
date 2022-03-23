@@ -13,6 +13,7 @@ import { VendorDetailComponent } from './features/vendor-detail/vendor-detail.co
 import { VendorListComponent } from './features/vendor-list/vendor-list.component';
 import { UserEditComponent } from './features/user-edit/user-edit.component';
 import { VendorEditComponent } from './features/vendor-edit/vendor-edit.component';
+import { ProductEditComponent } from './features/product-edit/product-edit.component';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'product/list', component: ProductListComponent },
   { path: 'product/detail/:id', component: ProductDetailComponent },
   { path: 'product/create', component: ProductCreateComponent },
+  { path: 'product/edit/:id', component: ProductEditComponent },
   { path: 'request/list', component: RequestListComponent },
   { path: '**', component: AboutComponent },
 ];

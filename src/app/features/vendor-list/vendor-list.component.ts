@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Vendor } from 'src/app/models/vendor.model';
 import { VendorService } from 'src/app/services/vendor.service';
 
@@ -10,7 +11,7 @@ import { VendorService } from 'src/app/services/vendor.service';
 export class VendorListComponent implements OnInit {
   vendors: Vendor[] = [];
 
-  constructor(private vendorService: VendorService) {}
+  constructor(private vendorService: VendorService,  private router: Router) {}
 
   ngOnInit(): void {
     this.vendorService.getAll().subscribe(

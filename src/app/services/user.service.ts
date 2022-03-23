@@ -27,10 +27,9 @@ export class UserService {
     return this.http.get<User[]>(requestUrl);
   }
 
-
   // http://localhost:8080/users"
   createUser(user: User): Observable<User[]> {
-    return this.http.post<User[]>(this.url, user)
+    return this.http.post<User[]>(this.url, user);
   }
 
   deleteById(id: number): Observable<User[]> {
@@ -38,4 +37,8 @@ export class UserService {
     return this.http.delete<User[]>(requestUrl);
   }
 
+  editById(user: User, id: number): Observable<User[]> {
+    let requestUrl = this.url + '/' + user.id;
+    return this.http.put<User[]>(requestUrl, user);
+  }
 }

@@ -38,7 +38,7 @@ export class ProductCreateComponent implements OnInit {
     this.productService.createProduct(this.product).subscribe(
       (data) => {
         console.log(data);
-        alert('Save successful!!');
+        alert('Save successful!');
         this.router.navigateByUrl('/product/list');
       },
       (error) => console.log(error)

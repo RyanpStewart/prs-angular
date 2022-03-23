@@ -10,7 +10,7 @@
       name="Username"
       id="username"
       placeholder="Username"
-      disabled
+      enabled
     />
   </div>
 
@@ -25,7 +25,7 @@
       name="Password"
       id="password"
       placeholder="Password"
-      disabled
+      enabled
     />
   </div>
 
@@ -40,7 +40,7 @@
       name="FirstName"
       id="firstName"
       placeholder="First Name"
-      disabled
+      enabled
     />
   </div>
 
@@ -70,7 +70,7 @@
       name="Phone"
       id="phone"
       placeholder="Phone Number"
-      disabled
+      enabled
     />
   </div>
 
@@ -85,7 +85,7 @@
       name="Email"
       id="email"
       placeholder="Email"
-      disabled
+      enabled
     />
   </div>
 
@@ -100,7 +100,7 @@
       name="Reviewer"
       id="reviewer"
       placeholder="Reviewer"
-      disabled
+      enabled
     />
   </div>
 
@@ -115,14 +115,11 @@
       name="Admin"
       id="admin"
       placeholder="Admin"
-      disabled
+      enabled
     />
   </div>
 
-  <button class="btn btn-primary" routerLink="/user/edit/{{ user.id }}">
+  <button type="button" (click)="editUser()" class="btn btn-warning">
     Edit
-  </button>
-  <button type="button" (click)="deleteUser()" class="btn btn-danger">
-    Delete
   </button>
 </div>

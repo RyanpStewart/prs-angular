@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
-
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css'],
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.css'],
 })
-export class UserDetailComponent implements OnInit {
+export class UserEditComponent implements OnInit {
   user: User = new User();
   userId: number = 0;
-
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -21,6 +20,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.userId = params.id;
+
       this.userService.getById(this.userId).subscribe(
         (data) => {
           if (data.length > 0) {
@@ -28,24 +28,18 @@ export class UserDetailComponent implements OnInit {
           }
           console.log(data);
         },
-        (error) => console.log(error)
+        (error) => {
+          console.log(error);
+        }
       );
     });
   }
-
-  deleteUser() {
-    this.userService.deleteById(this.user.id).subscribe(
-      (data) => {
-        this.router.navigateByUrl('/user/list');
-      },
-      (error) => console.log(error)
-    );
-  }
-
   editUser() {
-    this.userService.deleteById(this.user.id).subscribe(
+    console.log(this.user.id);
+    this.userService.editById(this.user, this.userId).subscribe(
       (data) => {
-        this.router.navigateByUrl('/user/edit');
+        console.log(data);
+        this.router.navigateByUrl('/user/list');
       },
       (error) => console.log(error)
     );

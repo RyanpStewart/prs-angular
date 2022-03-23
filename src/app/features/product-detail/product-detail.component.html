@@ -39,7 +39,8 @@
   <input
     class="form-control col-sm-6"
     type="text"
-    [(ngModel)]="product.price"
+    [ngModel]="product.price | currency"
+    (ngModelChange)="product.price = $event"
     name="Price"
     id="price"
     placeholder="Price"

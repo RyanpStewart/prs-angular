@@ -24,7 +24,7 @@ createUser() {
   this.userService.createUser(this.user).subscribe(
     data => {
       console.log(data)
-      alert("Save successful!!")
+      alert("Save successful!")
       this.router.navigateByUrl('/user/list')
     },
     error => console.log(error)

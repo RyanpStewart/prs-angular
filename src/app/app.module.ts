@@ -18,6 +18,7 @@ import { RequestListComponent } from './features/request-list/request-list.compo
 import { UserCreateComponent } from './features/user-create/user-create.component';
 import { VendorCreateComponent } from './features/vendor-create/vendor-create.component';
 import { ProductCreateComponent } from './features/product-create/product-create.component';
+import { UserEditComponent } from './features/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ProductCreateComponent } from './features/product-create/product-create
     UserCreateComponent,
     VendorCreateComponent,
     ProductCreateComponent,
+    UserEditComponent,
  
   ],
   imports: [

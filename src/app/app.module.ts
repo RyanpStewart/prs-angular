@@ -42,8 +42,8 @@ import { UserAuthenticateComponent } from './features/user-authenticate/user-aut
     UserEditComponent,
     VendorEditComponent,
     ProductEditComponent,
-    UserAuthenticateComponent,
- 
+    UserAuthenticateComponent
+
   ],
   imports: [
     BrowserModule,

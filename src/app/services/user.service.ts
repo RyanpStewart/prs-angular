@@ -43,7 +43,7 @@ export class UserService {
   }
 
   authenticate(user: User): Observable<User[]> {
-    let requestUrl = this.url + '/authenticate';
+    let requestUrl = this.url + '/authenticate'
     return this.http.post<User[]>(requestUrl, user);
   }
 }

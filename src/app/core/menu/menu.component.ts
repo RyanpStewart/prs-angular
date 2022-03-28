@@ -9,11 +9,14 @@ import { SystemService } from 'src/app/services/system.service';
 })
 export class MenuComponent implements OnInit {
 
-  user: User | null = null
+    public isCollapsed = true;
+
+  user?: User = undefined
+
   constructor(private systemService: SystemService) { }
 
   ngOnInit(): void {
-    this.user = this.systemService.loggedInUser
+    this.systemService.loggedInUser
   }
 
 }

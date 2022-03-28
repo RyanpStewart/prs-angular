@@ -39,7 +39,7 @@ export class UserEditComponent implements OnInit {
     this.userService.editById(this.user, this.userId).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigateByUrl('/user/list');
+        this.router.navigateByUrl('/user/detail/' + this.user.id);
       },
       (error) => console.log(error)
     );

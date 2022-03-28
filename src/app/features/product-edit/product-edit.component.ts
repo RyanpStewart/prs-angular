@@ -40,7 +40,7 @@ export class ProductEditComponent implements OnInit {
     this.productService.editById(this.product, this.productId).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigateByUrl('/product/list');
+        this.router.navigateByUrl('/product/detail/' + this.product.id);
       },
       (error) => console.log(error)
     );

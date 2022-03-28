@@ -1,28 +1,26 @@
-<table class="table table-dark table-sm">
+<button type="button" class="btn btn-primary" routerLink="/request/create">
+  Add New Request
+</button>
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">User</th>
       <th scope="col">Description</th>
-      <th scope="col">Justification</th>
       <th scope="col">Date Needed</th>
-      <th scope="col">Status</th>
+      <th scope="col">Date Submitted</th>
       <th scope="col">Total</th>
-      <th scope="col">Submitted Date</th>
-      <th scope="col">Reason For Rejection</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
-
   <tbody>
     <tr *ngFor="let request of requests">
-      <td>{{ request.id }}</td>
+      <td>{{ request.user.lastName }}, {{ request.user.firstName }}</td>
       <td>{{ request.description }}</td>
-      <td>{{ request.justification }}</td>
-      <td>{{ request.dateNeeded }}</td>
+      <td>{{ request.submittedDate | date }}</td>
+      <td>{{ request.dateNeeded | date }}</td>
+      <td>{{ request.total | currency }}</td>
       <td>{{ request.status }}</td>
-      <td>{{ request.total }}</td>
-      <td>{{ request.submittedDate }}</td>
-      <td>{{ request.reasonForRejection }}</td>
-
       <td><a routerLink="/request/detail/{{ request.id }}">Details</a></td>
     </tr>
   </tbody>

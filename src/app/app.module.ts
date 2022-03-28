@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './features/about/about.component';
@@ -22,7 +22,8 @@ import { UserEditComponent } from './features/user-edit/user-edit.component';
 import { VendorEditComponent } from './features/vendor-edit/vendor-edit.component';
 import { ProductEditComponent } from './features/product-edit/product-edit.component';
 import { UserAuthenticateComponent } from './features/user-authenticate/user-authenticate.component';
-
+import { RequestCreateComponent } from './features/request-create/request-create.component';
+import { RequestDetailComponent } from './features/request-detail/request-detail.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,11 @@ import { UserAuthenticateComponent } from './features/user-authenticate/user-aut
     UserEditComponent,
     VendorEditComponent,
     ProductEditComponent,
-    UserAuthenticateComponent
-
+    UserAuthenticateComponent,
+    RequestCreateComponent,
+    RequestDetailComponent,
+    RequestListComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,7 @@ import { UserAuthenticateComponent } from './features/user-authenticate/user-aut
     HttpClientModule,
     NgbModule,
     FormsModule,
+    NgbCollapseModule,
   ],
 
   providers: [],

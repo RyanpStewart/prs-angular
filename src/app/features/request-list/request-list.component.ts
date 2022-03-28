@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Request } from 'src/app/models/request.model';
 import { RequestService } from 'src/app/services/request.service';
-import { Request } from '../../models/request.model';
-
+import { SystemService } from 'src/app/services/system.service';
 @Component({
   selector: 'app-request-list',
   templateUrl: './request-list.component.html',
@@ -10,17 +10,28 @@ import { Request } from '../../models/request.model';
 export class RequestListComponent implements OnInit {
   requests: Request[] = [];
 
-  constructor(private requestService: RequestService) {}
-
+  constructor(
+    private requestService: RequestService,
+    private systemService: SystemService
+  ) {}
   ngOnInit(): void {
-    this.requestService.getAll().subscribe(
-      (data) => {
-        console.log(data);
-        this.requests = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    const loggedInUser = this.systemService.loggedInUser;
+    if (loggedInUser && loggedInUser.admin) {
+      this.requestService.getAll().subscribe(
+        (data) => {
+          this.requests = data;
+          console.log(data);
+        },
+        (error) => console.log(error)
+      );
+    } else if (loggedInUser && !loggedInUser.admin) {
+      this.requestService.getAllByUser(loggedInUser).subscribe(
+        (data) => {
+          this.requests = data;
+          console.log(data);
+        },
+        (error) => console.log(error)
+      );
+    }
   }
 }

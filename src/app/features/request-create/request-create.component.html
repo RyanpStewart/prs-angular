@@ -1,0 +1,65 @@
+
+<div class="mb-2 bg-info text-dark">
+  <div class="form-group row">
+
+    <label class="col-form-label font-weight-bold col-sm-2" for="code">User:</label>
+    <input
+      class="form-control col-sm-6"
+      type="text"
+      [(ngModel)]="request.user.username"
+      name="User"
+      id="user"
+      placeholder="User"
+    disabled
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="description">Description:</label>
+    <input
+      class="form-control col-sm-6"
+      type="text"
+      [(ngModel)]="request.description"
+      name="Description"
+      id="description"
+      placeholder="Description"
+
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="justification">Justification:</label>
+    <input
+      class="form-control col-sm-6"
+      type="text"
+      [(ngModel)]="request.justification"
+      name="Justification"
+      id="justification"
+      placeholder="Justification"
+
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="dateNeeded">Date Needed:</label>
+    <input
+      class="form-control"
+      type="datepicker"
+      [(ngModel)]="request.dateNeeded"
+      name="DateNeeded"
+      id="dateNeeded"
+      placeholder="Date Needed"
+
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="deliveryMode">Delivery Mode:</label>
+    <input
+      class="form-control col-sm-6"
+      type="text"
+      [(ngModel)]="request.deliveryMode"
+      name="DeliveryMode"
+      id="deliveryMode"
+      placeholder="Delivery Mode"
+
+    />
+
+<button type="button" class="btn btn-primary btn-lg" (click)="createRequest()">Create</button>
+

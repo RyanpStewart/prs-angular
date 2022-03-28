@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
 import { Request } from '../models/request.model';
+import { User } from '../models/user.model';
 
 // configure base url
-const requestRoute = '/requests';
+const requestRoute = '/request';
 
 @Injectable({
   providedIn: 'root',
@@ -22,9 +22,21 @@ export class RequestService {
     return this.http.get<Request[]>(requestUrl);
   }
 
-  // http://localhost:8080/requests/{id}
+  getAllByUser(user: User): Observable<Request[]> {
+    return this.http.put<Request[]>(this.url, user);
+  }
+
   getById(id: number): Observable<Request[]> {
     let requestUrl = this.url + '/' + id;
     return this.http.get<Request[]>(requestUrl);
+  }
+
+  // http://localhost:8080/requests/{id}
+  createRequest(request: Request): Observable<Request[]> {
+    return this.http.post<Request[]>(this.url, request);
+  }
+
+  editRequest(request: Request): Observable<Request[]> {
+    return this.http.put<Request[]>(this.url, request);
   }
 }

@@ -8,7 +8,7 @@ import { AboutComponent } from './features/about/about.component';
 import { UserListComponent } from './features/user-list/user-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserDetailComponent } from './features/user-detail/user-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VendorListComponent } from './features/vendor-list/vendor-list.component';
 import { VendorDetailComponent } from './features/vendor-detail/vendor-detail.component';
 import { ProductListComponent } from './features/product-list/product-list.component';
@@ -24,6 +24,9 @@ import { ProductEditComponent } from './features/product-edit/product-edit.compo
 import { UserAuthenticateComponent } from './features/user-authenticate/user-authenticate.component';
 import { RequestCreateComponent } from './features/request-create/request-create.component';
 import { RequestDetailComponent } from './features/request-detail/request-detail.component';
+import { RequestLinesComponent } from './features/request-lines/request-lines.component';
+import { LineItemCreateComponent } from './features/line-item-create/line-item-create.component';
+import { RequestEditComponent } from './features/request-edit/request-edit.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,11 @@ import { RequestDetailComponent } from './features/request-detail/request-detail
     RequestCreateComponent,
     RequestDetailComponent,
     RequestListComponent,
-    
+    RequestLinesComponent,
+    LineItemCreateComponent,
+    RequestEditComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -56,6 +63,7 @@ import { RequestDetailComponent } from './features/request-detail/request-detail
     NgbModule,
     FormsModule,
     NgbCollapseModule,
+    ReactiveFormsModule
   ],
 
   providers: [],

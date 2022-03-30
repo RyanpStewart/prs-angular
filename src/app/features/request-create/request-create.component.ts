@@ -30,7 +30,7 @@ export class RequestCreateComponent implements OnInit {
       (data) => {
         console.log(data);
         alert('Save successful!');
-        this.router.navigateByUrl('/request/list');
+        this.router.navigateByUrl('/request/list/');
       },
       (error) => console.log(error)
     );

@@ -25,18 +25,24 @@ export class RequestService {
   getAllByUser(user: User): Observable<Request[]> {
     return this.http.put<Request[]>(this.url, user);
   }
-
+  // http://localhost:8080/requests/{id}
   getById(id: number): Observable<Request[]> {
     let requestUrl = this.url + '/' + id;
     return this.http.get<Request[]>(requestUrl);
   }
 
-  // http://localhost:8080/requests/{id}
+  // http://localhost:8080/requests
   createRequest(request: Request): Observable<Request[]> {
     return this.http.post<Request[]>(this.url, request);
   }
-
+  // http://localhost:8080/requests/{id}
   editRequest(request: Request): Observable<Request[]> {
-    return this.http.put<Request[]>(this.url, request);
+    let requestUrl = this.url + '/' + request.id;
+    return this.http.put<Request[]>(requestUrl, request);
+  }
+
+  deleteRequest(id: number): Observable<Request[]> {
+    let requestUrl = this.url + '/' + id;
+    return this.http.delete<Request[]>(requestUrl);
   }
 }

@@ -17,6 +17,9 @@ import { ProductEditComponent } from './features/product-edit/product-edit.compo
 import { UserAuthenticateComponent } from './features/user-authenticate/user-authenticate.component';
 import { RequestCreateComponent } from './features/request-create/request-create.component';
 import { RequestDetailComponent } from './features/request-detail/request-detail.component';
+import { RequestLinesComponent } from './features/request-lines/request-lines.component';
+import { LineItemCreateComponent } from './features/line-item-create/line-item-create.component';
+import { RequestEditComponent } from './features/request-edit/request-edit.component';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
@@ -36,6 +39,9 @@ const routes: Routes = [
   { path: 'request/detail/:id', component: RequestDetailComponent },
   { path: 'request/list', component: RequestListComponent },
   { path: 'request/create', component: RequestCreateComponent },
+  { path: 'request/lines/:id', component: RequestLinesComponent },
+  { path: 'request/edit/:id', component: RequestEditComponent },
+  { path: 'lines/create/:id', component: LineItemCreateComponent },
   { path: '**', component: AboutComponent },
 ];
 

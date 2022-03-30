@@ -25,9 +25,9 @@ export class UserAuthenticateComponent implements OnInit {
         if (data.length > 0) {
           console.log(data);
           this.systemService.loggedInUser = data[0];
-          this.router.navigateByUrl('/user/list');
+          this.router.navigateByUrl('');
         } else {
-          // username password combo bad
+      alert('Incorrect username or password')
         }
       },
 

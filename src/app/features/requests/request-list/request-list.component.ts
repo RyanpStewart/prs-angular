@@ -28,7 +28,7 @@ export class RequestListComponent implements OnInit {
         (error) => console.log(error)
       );
     } else if (loggedInUser && !loggedInUser.admin) {
-      this.requestService.getAll().subscribe(
+      this.requestService.getAllByUser(loggedInUser).subscribe(
         (data) => {
           this.requests = data;
           console.log(data);

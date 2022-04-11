@@ -19,10 +19,12 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@fortawesome/angular-fontawesome": "^0.10.2",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "angular2-number-picker": "^0.8.8",
     "bootstrap": "^4.5.0",
     "bootstrap-input-spinner": "^2.2.0",
+    "ngx-show-hide-password": "^2.6.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

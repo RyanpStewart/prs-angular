@@ -11,9 +11,10 @@ const productRoute = '/products';
   providedIn: 'root',
 })
 export class ProductService {
+private url = environment.apiBaseUrl + productRoute;
   constructor(private http: HttpClient) {}
 
-  url = environment.apiBaseUrl + productRoute;
+
 
   //get all products
   //http://localhost:8080/products/

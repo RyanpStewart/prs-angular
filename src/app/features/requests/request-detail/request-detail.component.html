@@ -1,0 +1,130 @@
+<app-menu></app-menu>
+<div class="p-3 mb-2 bg-info text-dark">
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="request">
+      >User:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="text"
+      [(ngModel)]="request.user.username"
+      name="User"
+      id="user"
+      placeholder="User"
+      disabled
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="description"
+      >Description:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="text"
+      [(ngModel)]="request.description"
+      name="Description"
+      id="description"
+      placeholder="Description"
+      disabled
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="justification"
+      >Justification:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="text"
+      [(ngModel)]="request.justification"
+      name="Justification"
+      id="justification"
+      placeholder="Justification"
+      disabled
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="justification"
+      >Total:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="text"
+      [(ngModel)]="request.total"
+      name="Total"
+      id="total"
+      placeholder="Total"
+      disabled
+    />
+  </div>
+
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="dateNeeded"
+      >Date Needed:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="datepicker"
+      [(ngModel)]="request.dateNeeded"
+      name="DateNeeded"
+      id="dateNeeded"
+      placeholder="Date Needed"
+      disabled
+    />
+  </div>
+
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="submittedDate"
+      >Date Submitted:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="datepicker"
+      [(ngModel)]="request.submittedDate"
+      name="SubmittedDate"
+      id="submittedDate"
+      placeholder="Date Submitted"
+      disabled
+    />
+  </div>
+
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="deliveryMode"
+      >Delivery Mode:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="text"
+      [(ngModel)]="request.deliveryMode"
+      name="DeliveryMode"
+      id="deliveryMode"
+      placeholder="Delivery Mode"
+      disabled
+    />
+  </div>
+
+  <div class="form-group row">
+    <label class="col-form-label font-weight-bold col-sm-2" for="status"
+      >Status:</label
+    >
+    <input
+      class="form-control col-sm-3"
+      type="text"
+      [(ngModel)]="request.status"
+      name="Status"
+      id="status"
+      placeholder="Status"
+      disabled
+    />
+  </div>
+
+  <button class="btn btn-primary" routerLink="/request/edit/{{ request.id }}">
+    Edit
+  </button>
+  <button
+    type="button"
+    (click)="deleteRequest(request.id)"
+    class="btn btn-danger"
+  >
+    Delete
+  </button>
+</div>

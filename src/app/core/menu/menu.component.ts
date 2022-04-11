@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   constructor(private systemService: SystemService) { }
 
   ngOnInit(): void {
-    this.systemService.loggedInUser
+    this.user = this.systemService.loggedInUser
   }
 
 }

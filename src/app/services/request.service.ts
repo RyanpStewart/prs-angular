@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Request } from '../models/request.model';
 import { User } from '../models/user.model';
 
 // configure base url
-const requestRoute = '/request';
+const requestRoute = '/requests';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RequestService {
-  private url = environment.apiBaseUrl + requestRoute;
+  url = environment.apiBaseUrl + requestRoute;
 
   constructor(private http: HttpClient) {}
 
@@ -44,5 +45,30 @@ export class RequestService {
   deleteRequest(id: number): Observable<Request[]> {
     let requestUrl = this.url + '/' + id;
     return this.http.delete<Request[]>(requestUrl);
+  }
+
+  getAllForReview(user: User): Observable<Request[]> {
+    let requestUrl = this.url + '/review'
+    return this.http.put<Request[]>(requestUrl, user);
+  }
+
+  setStatusReview(request: Request): Observable<Request[]> {
+    let requestUrl = this.url + '/status-review/' + request.id;
+    return this.http.put<Request[]>(requestUrl, request);
+  }
+
+  setStatusApproved(request: Request): Observable<Request[]> {
+    let requestUrl = this.url + '/status-approved/' + request.id;
+    return this.http.put<Request[]>(requestUrl, request);
+  }
+
+  setStatusRejected(request: Request): Observable<Request[]> {
+    let requestUrl = this.url + '/status-rejected/' + request.id;
+    return this.http.put<Request[]>(requestUrl, request);
+  }
+
+  setStatusReopened(request: Request): Observable<Request[]> {
+    let requestUrl = this.url + '/status-reopened/' + request.id;
+    return this.http.put<Request[]>(requestUrl, request);
   }
 }

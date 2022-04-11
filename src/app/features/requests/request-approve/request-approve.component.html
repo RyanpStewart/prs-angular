@@ -1,0 +1,67 @@
+<app-menu></app-menu>
+<table class="table table-dark table-sm">
+  <thead>
+    <th scope="col">User</th>
+    <th scope="col">Description</th>
+    <th scope="col">Justification</th>
+    <th scope="col">Status</th>
+    <th scope="col">Total</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ request.user.lastName }}, {{ request.user.firstName }}</td>
+      <td>{{ request.description }}</td>
+      <td>{{ request.justification }}</td>
+      <td>{{ request.status }}</td>
+      <td>{{ request.total | currency }}</td>
+    </tr>
+  </tbody>
+</table>
+<table class="table table-dark table-sm">
+  <thead>
+    <th scope="col">Product</th>
+    <th scope="col">Quantity</th>
+ 
+    <th scope="col">Price</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lineItem of lineItems">
+      <td>{{ lineItem.product.name }} | {{ lineItem.product.vendor.name }}</td>
+      <td>{{ lineItem.quantity }}</td>
+
+      <td>{{ lineItem.product.price * lineItem.quantity | currency }}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <button
+      type="button"
+      class="btn btn-primary mb-2"
+      (click)="setStatusApproved()"
+    >
+      Approve
+    </button>
+  </div>
+
+  <input
+    class="form-control col-sm-2"
+    type="text"
+    [(ngModel)]="request.reasonForRejection"
+    name="ReasonForRejection"
+    id="reasonForRejection"
+    placeholder="Reason For Rejection"
+  />
+
+  <div class="input-group-append">
+    <button
+      [disabled]="request.reasonForRejection === ''"
+      class="btn btn-danger mb-2"
+      (click)="setStatusRejected()"
+    >
+      Reject
+    </button>
+
+
+  </div>
+</div>

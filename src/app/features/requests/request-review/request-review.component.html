@@ -1,0 +1,31 @@
+<app-menu></app-menu>
+<table class="table table-dark table-sm">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Description</th>
+      <th scope="col">Justification</th>
+      <th scope="col">Status</th>
+      <th scope="col">Total</th>
+      <th scope="col">Date Submitted</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let request of requests">
+      <td *ngIf="request.status === 'Rejected' || request.status === 'Review'">
+        {{ request.user.lastName }}, {{ request.user.firstName }}
+      </td>
+      <td *ngIf="request.status === 'Rejected' || request.status === 'Review'">{{ request.description }}</td>
+      <td *ngIf="request.status === 'Rejected' || request.status === 'Review'">{{ request.justification }}</td>
+      <td *ngIf="request.status === 'Rejected' || request.status === 'Review'">{{ request.status }}</td>
+      <td *ngIf="request.status === 'Rejected' || request.status === 'Review'">{{ request.total | currency }}</td>
+      <td *ngIf="request.status === 'Rejected' || request.status === 'Review'">
+        {{ request.submittedDate | date }}
+      </td>
+      <td *ngIf="request.status === 'Rejected' || request.status === 'Review'">
+        <a routerLink="/request/approve/{{ request.id }}">Review</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

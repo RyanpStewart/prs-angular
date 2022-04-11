@@ -8,6 +8,7 @@
       [attr.aria-expanded]="!isCollapsed"
       aria-controls="navbarsExampleDefault"
       aria-label="Toggle navigation"
+
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,6 +17,7 @@
       class="collapse navbar-collapse"
       id="navbarsExampleDefault"
       [ngbCollapse]="isCollapsed"
+
     >
       <nav class="navbar navbar-expand-lg navbar-light">
         <ul class="navbar-nav mr-auto">
@@ -34,10 +36,15 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/request/list">Requests</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="user != undefined && user.reviewer" class="nav-item">
+            <a class="nav-link" routerLink="/request/review">Review</a>
+          </li>
+          <li *ngIf="user === undefined" class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
-          <li *ngIf="user">Hello, {{ user.firstName }}</li>
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link">Hello, {{ user.firstName }}</a>
+          </li>
         </ul>
       </nav>
     </div>

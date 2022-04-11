@@ -1,0 +1,87 @@
+<app-menu></app-menu>
+<table class="table table-dark table-sm">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Description</th>
+      <th scope="col">Justification</th>
+      <th scope="col">Status</th>
+      <th scope="col">Reason for Rejection</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ request.user.lastName }}, {{ request.user.firstName }}</td>
+      <td>{{ request.description }}</td>
+      <td>{{ request.justification }}</td>
+      <td>{{ request.status }}</td>
+      <td>{{ request.reasonForRejection }}</td>
+      <td>{{ request.total | currency }}</td>
+    </tr>
+  </tbody>
+</table>
+<button
+  *ngIf="request.status === 'New' || request.status === 'Reopened'"
+  type="button"
+  class="btn btn-primary"
+  routerLink="/lines/create/{{ request.id }}"
+>
+  Add LineItem
+</button>
+
+<table class="table table-dark table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lineItem of lineItems">
+      <td>{{ lineItem.product.name }}</td>
+      <td>{{ lineItem.quantity }}</td>
+      <td>{{ lineItem.quantity * lineItem.product.price | currency }}</td>
+      <td
+        *ngIf="
+          request.status === 'New' ||
+          request.status === 'Reopened'
+        "
+      >
+        <a routerLink="/lines/edit/{{ lineItem.id }}">Edit</a> |
+        <a
+          routerLink="/request/lines/{{ request.id }}"
+          (click)="deleteLineItem(lineItem.id)"
+          >Delete</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button
+  *ngIf="
+    (request.status === 'New' && lineItems.length > 0) ||
+    request.status === 'Reopened'
+  "
+  type="button"
+  class="btn btn-primary btn-lg"
+  (click)="setStatusReview()"
+>
+  Submit
+</button>
+<button
+  (click)="setStatusReopened()"
+  *ngIf="request.status === 'Rejected'"
+  type="button"
+  class="btn btn-primary btn-lg"
+  routerLink="/request/lines/{{ request.id }}"
+>
+  Reopen
+</button>
+
+<div>
+  <button routerLink="/request/list">Back to Requests</button>
+</div>

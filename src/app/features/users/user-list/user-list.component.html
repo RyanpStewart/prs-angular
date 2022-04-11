@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<button type="button" class="btn btn-primary" routerLink="/user/create">
+  Add New User
+</button>
+<table class="table table-dark table-sm">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Reviewer?</th>
+      <th scope="col">Admin?</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.reviewer }}</td>
+      <td>{{ user.admin }}</td>
+      <td>
+        <a routerLink="/user/detail/{{ user.id }}">Details</a> |
+        <a routerLink="/user/list" (click)="deleteUser(user.id)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
